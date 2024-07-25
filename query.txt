@@ -1,0 +1,13 @@
+1. Seleziona gli utenti che hanno postato almeno un video
+
+SELECT users.* 
+FROM users INNER JOIN medias
+ON users.id = medias.user_id
+GROUP BY users.id
+
+2. Seleziona tutti i post senza Like (13)
+
+SELECT posts.* 
+FROM posts LEFT JOIN likes
+ON posts.id = likes.post_id
+WHERE likes.post_id IS null
